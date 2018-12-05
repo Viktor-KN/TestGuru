@@ -1,6 +1,13 @@
 # TestGuru
 Thinknetica online scool lesson project
 
+Проект будет оперировать такими сущностями как:
+* User
+* Test
+* Question
+* Answer
+* Result
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
