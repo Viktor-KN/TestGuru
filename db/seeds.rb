@@ -6,75 +6,40 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = %w[Ruby SQL Rails]
-users = %w[Bill Bob Alice]
+QUESTIONS_PER_TEST = 2
+MIN_COMPLETED_TESTS = 2
+RANDOM_SEED = 777 # Keeps generated random numbers persistent between db reseeding
+category_titles = %w[Ruby SQL Rails]
+user_names = %w[Bill Bob Alice]
+categories = []
+users = []
+tests = []
+questions = []
+rnd = Random.new(RANDOM_SEED)
 
-categories.each { |category| Category.create(title: category) }
-users.each { |user| User.create(name: user) }
 
-t1 = Test.create(title: 'Ruby Basics', level: 0, category_id: Category.find_by_title('Ruby').id)
-t2 = Test.create(title: 'Advanced Ruby', level: 1, category_id: Category.find_by_title('Ruby').id)
-t3 = Test.create(title: 'SQL Basics', level: 0, category_id: Category.find_by_title('SQL').id)
-t4 = Test.create(title: 'Advanced SQL', level: 1, category_id: Category.find_by_title('SQL').id)
-t5 = Test.create(title: 'Rails Basics', level: 0, category_id: Category.find_by_title('Rails').id)
-t6 = Test.create(title: 'Advanced Rails', level: 1, category_id: Category.find_by_title('Rails').id)
+category_titles.each { |category| categories << Category.create!(title: category) }
+user_names.each { |user| users << User.create!(name: user) }
 
-q1_1 = Question.create(body: 'Question Ruby Basics 1', test_id: t1.id)
-q1_2 = Question.create(body: 'Question Ruby Basics 2', test_id: t1.id)
+categories.each do |category|
+  tests << Test.create!(title: "#{category.title} Basics", level: 0, category_id: category.id)
+  tests << Test.create!(title: "Advanced #{category.title}", level: 1, category_id: category.id)
+end
 
-q2_1 = Question.create(body: 'Question Advanced Ruby 1', test_id: t2.id)
-q2_2 = Question.create(body: 'Question Advanced Ruby 2', test_id: t2.id)
+tests.each do |test|
+  (1..QUESTIONS_PER_TEST).each do |i|
+    questions << Question.create!(body: "Question #{test.title} #{i}", test_id: test.id)
+  end
+end
 
-q3_1 = Question.create(body: 'Question SQL Basics 1', test_id: t3.id)
-q3_2 = Question.create(body: 'Question SQL Basics 2', test_id: t3.id)
+questions.each do |question|
+  Answer.create!(body: "Correct answer to #{question.body}", correct: true, question_id: question.id)
+  Answer.create!(body: "Incorrect answer to #{question.body}", correct: false, question_id: question.id)
+end
 
-q4_1 = Question.create(body: 'Question Advanced SQL 1', test_id: t4.id)
-q4_2 = Question.create(body: 'Question Advanced SQL 2', test_id: t4.id)
-
-q5_1 = Question.create(body: 'Question Rails Basics 1', test_id: t5.id)
-q5_2 = Question.create(body: 'Question Rails Basics 2', test_id: t5.id)
-
-q6_1 = Question.create(body: 'Question Advanced Rails 1', test_id: t6.id)
-q6_2 = Question.create(body: 'Question Advanced Rails 2', test_id: t6.id)
-
-Answer.create(body: 'Correct answer to question Ruby Basics 1', correct: true, question_id: q1_1.id)
-Answer.create(body: 'Incorrect answer to question Ruby Basics 1', correct: false, question_id: q1_1.id)
-Answer.create(body: 'Correct answer to question Ruby Basics 2', correct: true, question_id: q1_2.id)
-Answer.create(body: 'Incorrect answer to question Ruby Basics 2', correct: false, question_id: q1_2.id)
-
-Answer.create(body: 'Correct answer to question Advanced Ruby 1', correct: true, question_id: q2_1.id)
-Answer.create(body: 'Incorrect answer to question Advanced Ruby 1', correct: false, question_id: q2_1.id)
-Answer.create(body: 'Correct answer to question Advanced Ruby 2', correct: true, question_id: q2_2.id)
-Answer.create(body: 'Incorrect answer to question Advanced Ruby 2', correct: false, question_id: q2_2.id)
-
-Answer.create(body: 'Correct answer to question SQL Basics 1', correct: true, question_id: q3_1.id)
-Answer.create(body: 'Incorrect answer to question SQL Basics 1', correct: false, question_id: q3_1.id)
-Answer.create(body: 'Correct answer to question SQL Basics 2', correct: true, question_id: q3_2.id)
-Answer.create(body: 'Incorrect answer to question SQL Basics 2', correct: false, question_id: q3_2.id)
-
-Answer.create(body: 'Correct answer to question Advanced SQL 1', correct: true, question_id: q4_1.id)
-Answer.create(body: 'Incorrect answer to question Advanced SQL 1', correct: false, question_id: q4_1.id)
-Answer.create(body: 'Correct answer to question Advanced SQL 2', correct: true, question_id: q4_2.id)
-Answer.create(body: 'Incorrect answer to question Advanced SQL 2', correct: false, question_id: q4_2.id)
-
-Answer.create(body: 'Correct answer to question Rails Basics 1', correct: true, question_id: q5_1.id)
-Answer.create(body: 'Incorrect answer to question Rails Basics 1', correct: false, question_id: q5_1.id)
-Answer.create(body: 'Correct answer to question Rails Basics 2', correct: true, question_id: q5_2.id)
-Answer.create(body: 'Incorrect answer to question Rails Basics 2', correct: false, question_id: q5_2.id)
-
-Answer.create(body: 'Correct answer to question Advanced Rails 1', correct: true, question_id: q6_1.id)
-Answer.create(body: 'Incorrect answer to question Advanced Rails 1', correct: false, question_id: q6_1.id)
-Answer.create(body: 'Correct answer to question Advanced Rails 2', correct: true, question_id: q6_2.id)
-Answer.create(body: 'Incorrect answer to question Advanced Rails 2', correct: false, question_id: q6_2.id)
-
-Result.create(user_id: User.find_by_name('Bill').id, test_id: t1.id)
-Result.create(user_id: User.find_by_name('Bill').id, test_id: t3.id)
-Result.create(user_id: User.find_by_name('Bill').id, test_id: t6.id)
-
-Result.create(user_id: User.find_by_name('Bob').id, test_id: t1.id)
-Result.create(user_id: User.find_by_name('Bob').id, test_id: t2.id)
-Result.create(user_id: User.find_by_name('Bob').id, test_id: t3.id)
-Result.create(user_id: User.find_by_name('Bob').id, test_id: t4.id)
-
-Result.create(user_id: User.find_by_name('Alice').id, test_id: t5.id)
-Result.create(user_id: User.find_by_name('Alice').id, test_id: t6.id)
+tests_count = tests.size
+users.each do |user|
+  rnd.rand(MIN_COMPLETED_TESTS..tests_count).times do
+    Result.create!(user_id: user.id, test_id: tests[rnd.rand(tests_count)].id)
+  end
+end
