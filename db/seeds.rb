@@ -17,8 +17,8 @@ categories.map! { |category| Category.create!(title: category) }
 users.map! { |user| User.create!(name: user) }
 
 tests = categories.flat_map do |category|
-  Test.create!([{ title: "#{category.title} Basics", level: 0, category: category, author_id: 2 },
-                { title: "Advanced #{category.title}", level: 1, category: category, author_id: 3 }])
+  Test.create!([{ title: "#{category.title} Basics", level: 0, category: category, author: users[1] },
+                { title: "Advanced #{category.title}", level: 1, category: category, author: users[2] }])
 end
 
 questions = tests.flat_map do |test|
