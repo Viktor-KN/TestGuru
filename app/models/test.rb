@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   has_many :participants, through: :results, source: :user
   has_many :questions, dependent: :destroy
 
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :title, uniqueness: { scope: :level }
+
   scope :easy, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 3..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
