@@ -5,7 +5,10 @@ class Test < ApplicationRecord
   has_many :participants, through: :results, source: :user
   has_many :questions, dependent: :destroy
 
-  def self.titles_by_category(category_title)
-    joins(:category).where(categories: { title: category_title }).distinct.order(title: :desc).pluck(:title)
-  end
+  scope :easy, -> { where(level: 0..1) }
+  scope :middle, -> { where(level: 3..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :by_category, ->(category_title) { joins(:category).where(categories: { title: category_title }) }
+  scope :titles_by_category, ->(category_title) { by_category(category_title).distinct.order(title: :desc).pluck(:title) }
+  scope :by_level, ->(level) { where(level: level) }
 end
