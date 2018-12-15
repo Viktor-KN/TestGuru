@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_070335) do
     t.integer "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["title", "level"], name: "index_tests_on_title_and_level"
+    t.index ["level", "title"], name: "index_tests_on_level_and_title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,8 +62,6 @@ ActiveRecord::Schema.define(version: 2018_12_14_070335) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end
