@@ -1,0 +1,5 @@
+<h2>New question</h2>
+<%= form_with model: [@test, Question.new] do |f| %>
+  <%= f.text_area :body, size: '80x3' %><br>
+  <%= f.submit %>
+<% end %>

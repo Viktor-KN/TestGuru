@@ -1,0 +1,9 @@
+<h2><%= @test.title %></h2>
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= link_to question.body, question %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New question', new_test_question_path(@test) %>
