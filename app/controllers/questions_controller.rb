@@ -10,17 +10,18 @@ class QuestionsController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
 
   def create
     question = @test.questions.create(question_params)
-    redirect_to question if question.save
+    redirect_to question
   end
 
   def destroy
-    test_id = @question.test_id
     @question.destroy
-    redirect_to test_questions_path(test_id)
+    redirect_to test_questions_path(@question.test_id)
   end
 
   private
