@@ -5,5 +5,5 @@
 <div class="nav-section">
   <%= link_to 'Edit question', edit_question_path(@question) %>
   <%= link_to 'Delete question', question_path(@question), method: :delete, data: { confirm: 'Really?' } %>
-  <%= link_to 'Back', test_questions_path(@question.test) %>
+  <%= link_to 'Back', test_path(@question.test) %>
 </div>

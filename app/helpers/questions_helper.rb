@@ -1,7 +1,13 @@
 module QuestionsHelper
-  QUESTION_ACTIONS = { new: 'Create new', edit: 'Edit' }.freeze
+  def question_form_header(test, question)
+    if question.new_record?
+      action = 'Create new'
+      title = test.title
+    else
+      action = 'Edit'
+      title = question.test.title
+    end
 
-  def form_header(action, test)
-    "#{QUESTION_ACTIONS[action]} #{test.title} Question"
+    "#{action} #{title} Question"
   end
 end

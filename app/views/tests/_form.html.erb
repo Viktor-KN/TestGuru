@@ -1,0 +1,15 @@
+<h2><%= test_form_header(@test) %></h2>
+
+<div class="form">
+  <%= form_with model: @test, local: true do |f| %>
+    <%= render 'shared/errors', resource: @test %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :level %>
+    <%= f.number_field :level %>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true %>
+    <%= f.submit %>
+  <% end %>
+</div>
