@@ -1,5 +1,7 @@
-<h2>New question</h2>
-<%= form_with model: [@test, @question] do |f| %>
-  <%= f.text_area :body, size: '80x3' %><br>
-  <%= f.submit %>
-<% end %>
+<h2><%= form_header(:new, @test) %></h2>
+
+<%= render 'form' %>
+
+<div class="nav-section">
+  <%= link_to 'Back', test_questions_path(@test) %>
+</div>

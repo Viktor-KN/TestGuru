@@ -1,7 +1,3 @@
 <ul>
-  <% @tests.each do |test| %>
-    <li>
-      <%= link_to test.title, test_questions_path(test) %>
-    </li>
-  <% end %>
+<%= render @tests %>
 </ul>

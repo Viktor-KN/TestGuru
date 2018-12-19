@@ -1,9 +1,8 @@
-<h2><%= @test.title %></h2>
+<h2><%= @test.title %> Test</h2>
 <ul>
-  <% @questions.each do |question| %>
-    <li>
-      <%= link_to question.body, question %>
-    </li>
-  <% end %>
+  <%= render @questions %>
 </ul>
+<div class="nav-section">
 <%= link_to 'New question', new_test_question_path(@test) %>
+<%= link_to 'Back', tests_path %>
+</div>

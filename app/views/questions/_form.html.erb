@@ -1,0 +1,6 @@
+<%= form_with model: [@test, @question], local: true do |f| %>
+  <%= render 'shared/errors', resource: @question %>
+
+  <%= f.text_area :body, size: '80x3', placeholder: 'Question text here...' %>
+  <%= f.submit class: 'display-block' %>
+<% end %>
