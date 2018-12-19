@@ -1,0 +1,14 @@
+<h2><%= @test.title %> Test</h2>
+<h4>Category: <%= @test.category.title %></h4>
+<h4>Level: <%= @test.level %></h4>
+<p><h4>Questions:</h4>
+<ul>
+  <%= render @test.questions %>
+</ul>
+</p>
+<div class="nav-section">
+  <%= link_to 'New question', new_test_question_path(@test) %>
+  <%= link_to 'Edit test', edit_test_path(@test) %>
+  <%= link_to 'Delete test', test_path(@test), method: :delete, data: {confirm: 'Really?'} %>
+  <%= link_to 'Back', tests_path %>
+</div>
