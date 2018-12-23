@@ -1,10 +1,14 @@
-<h2><%= question_form_header(@question) %></h2>
+<h1><%= question_form_header(@question) %></h1>
 
-<div class="form">
-  <%= form_with model: [@test, @question], local: true do |f| %>
-    <%= render 'shared/errors', resource: @question %>
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <%= render 'shared/errors', resource: @question %>
 
-    <%= f.text_area :body, size: '80x3', placeholder: 'Question text here...' %>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, size: '80x3' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
