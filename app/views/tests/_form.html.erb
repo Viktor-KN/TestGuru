@@ -1,15 +1,24 @@
-<h2><%= test_form_header(@test) %></h2>
+<h1><%= test_form_header(@test) %></h1>
 
-<div class="form">
-  <%= form_with model: @test, local: true do |f| %>
-    <%= render 'shared/errors', resource: @test %>
+<%= form_with model: @test, local: true do |form| %>
+  <%= render 'shared/errors', resource: @test %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :level %>
-    <%= f.number_field :level %>
-    <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true %>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

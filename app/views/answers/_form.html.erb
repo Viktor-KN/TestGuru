@@ -1,10 +1,11 @@
 <h1><%= answer_form_header(@answer) %></h1>
+
 <%= form_with model: [@question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, size: '80x3' %>
   </div>
 
   <div class="field">
