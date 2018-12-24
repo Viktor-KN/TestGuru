@@ -1,12 +1,12 @@
 <h1>The <%= @test_passage.test.title %> Test was completed!</h1>
 
-<% if test_result_success?(@test_passage) %>
+<% if @test_passage.result_success? %>
   <p class="pass-result">
 <% else %>
   <p class="fail-result">
 <% end %>
 
-You <%= test_result_status(@test_passage) %> the test (<%= test_result_percent(@test_passage) %>%)
+You <%= test_result_status(@test_passage) %> the test (<%= @test_passage.result_percent %>%)
 </p>
 
 <%= link_to 'Tests Index', tests_path %>
