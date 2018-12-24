@@ -32,9 +32,9 @@ questions.each do |question|
                   { body: "Incorrect answer to #{question.body}", correct: false, question: question }])
 end
 
-tests_count = tests.size
-users.each do |user|
-  rnd.rand(min_completed_tests..tests_count).times do
-    Result.create!(user: user, test: tests[rnd.rand(tests_count)])
-  end
-end
+# tests_count = tests.size
+# users.each do |user|
+#   rnd.rand(min_completed_tests..tests_count).times do
+#     Result.create!(user: user, test: tests[rnd.rand(tests_count)])
+#   end
+# end
