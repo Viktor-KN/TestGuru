@@ -17,7 +17,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_index
-    test.questions.order(:id).ids.find_index(current_question.id) + 1
+    test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
   def result_success?
@@ -40,7 +40,7 @@ class TestPassage < ApplicationRecord
 
   def next_question
     if new_record?
-      self.current_question = test.questions.first if test.present?
+      test.questions.first if test.present?
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
