@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :find_test, only: %i[show edit update destroy start]
-  before_action :find_user, only: %i[create start]
+  before_action :set_user, only: %i[create start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_resource_not_found
 
@@ -49,8 +50,8 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-  def find_user
-    @user = User.first # Temporary stub
+  def set_user
+    @user = current_user
   end
 
   def test_params
