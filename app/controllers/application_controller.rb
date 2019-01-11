@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    if current_user
-      cookies.delete(:redirect_path)
-    else
+    unless current_user
       cookies[:redirect_path] = request.path
       redirect_to login_path, alert: 'Please log in to access this resource'
     end
