@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def new
-    return redirect_to root_path if logged_in?
+  before_action :redirect_to_root, if: :logged_in?, only: %i[new create]
 
+  def new
     @user = User.new
   end
 
   def create
-    return redirect_to root_path if logged_in?
-
     @user = User.new(user_params)
 
     if @user.save

@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def new
-    return redirect_to root_path if logged_in?
-  end
+  before_action :redirect_to_root, if: :logged_in?, only: %i[new create]
+
+  def new; end
 
   def create
-    return redirect_to root_path if logged_in?
-
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
@@ -27,6 +25,6 @@ class SessionsController < ApplicationController
   private
 
   def destination_path
-    cookies[:redirect_path] || root_path
+    cookies.delete(:redirect_path) || root_path
   end
 end
