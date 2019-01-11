@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :nullify
 
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }
-  validates :email, presence: true, uniqueness: true, email: true
+  validates :email, presence: true, uniqueness: true, format: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
   has_secure_password
 
