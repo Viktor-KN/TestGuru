@@ -14,11 +14,13 @@ users = %w[Bill Bob Alice]
 rnd = Random.new(random_seed)
 
 categories.map! { |category| Category.create!(title: category) }
-users.map! { |user| User.create!(name: user, email: "#{user.downcase}@foo.bar", password: '123456', confirmed_at: Time.now.utc) }
+users.map! { |user| User.create!(first_name: user, last_name: user, email: "#{user.downcase}@foo.bar", password: '123456', confirmed_at: Time.now.utc) }
+
+Admin.create!(first_name: 'John', last_name: 'Admin', email: "john@foo.bar", password: '123456', confirmed_at: Time.now.utc)
 
 tests = categories.flat_map do |category|
   Test.create!([{ title: "#{category.title} Basics", level: 0, category: category, author: users[1] },
-                { title: "Advanced #{category.title}", level: 1, category: category, author: users[2] }])
+                { title: "Advanced #{category.title}", level: 1, category: category, author: users[1] }])
 end
 
 questions = tests.flat_map do |test|
