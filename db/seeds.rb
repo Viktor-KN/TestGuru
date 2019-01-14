@@ -14,7 +14,7 @@ users = %w[Bill Bob Alice]
 rnd = Random.new(random_seed)
 
 categories.map! { |category| Category.create!(title: category) }
-users.map! { |user| User.create!(name: user, email: "#{user.downcase}@foo.bar") }
+users.map! { |user| User.create!(name: user, email: "#{user.downcase}@foo.bar", password: '123456', confirmed_at: Time.now.utc) }
 
 tests = categories.flat_map do |category|
   Test.create!([{ title: "#{category.title} Basics", level: 0, category: category, author: users[1] },
