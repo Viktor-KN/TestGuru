@@ -4,7 +4,4 @@
   <td><%= test.level %></td>
   <td><%= pluralize(test.questions.count, 'question') %></td>
   <td><%= button_to 'Start', start_test_path(test) %></td>
-  <td><%= link_to 'Show', test %></td>
-  <td><%= link_to 'Edit', edit_test_path(test) %></td>
-  <td><%= link_to 'Delete', test, method: :delete, data: { confirm: 'Really?' } %></td>
 </tr>
