@@ -1,0 +1,18 @@
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer.body %>
+</p>
+
+<p>
+  <strong>Correct:</strong>
+  <%= @answer.correct %>
+</p>
+
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to'Delete', admin_answer_path(@answer), method: :delete, data: {confirm: 'Really?'} %> |
+<%= link_to 'Back', admin_question_path(@answer.question) %>

@@ -1,7 +1,0 @@
-<tr>
-  <td><%= question.body %></td>
-  <td><%= pluralize(question.answers.count, 'answer') %></td>
-  <td><%= link_to 'Show', question %></td>
-  <td><%= link_to 'Edit', edit_question_path(question) %></td>
-  <td><%= link_to 'Delete', question, method: :delete, data: { confirm: 'Really?' } %></td>
-</tr>
