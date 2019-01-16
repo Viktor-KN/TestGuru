@@ -1,9 +1,10 @@
 <div class="footer">
   <p>
     &copy;<%= current_year %>
-    Виктор Качулин,
-    проект: <%= link_to 'TestGuru', github_url('Viktor-KN', 'TestGuru'), target: '_blank' %>
+    <%= t('.project_author') %>,
+    <%= t('.project') %>:
+    <%= link_to 'TestGuru', github_url('Viktor-KN', 'TestGuru'), target: '_blank' %>
   </p>
-  <p>Проект TestGuru предназначен для создания, управления и выполнения различных тестов.</p>
-  <p><%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'http://thinknetica.com/', target: '_blank' %></p>
+  <p><%= t('.project_description') %></p>
+  <p><%= link_to t('.thinknetica_link_description'), 'http://thinknetica.com/', target: '_blank' %></p>
 </div>

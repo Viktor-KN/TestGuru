@@ -1,9 +1,10 @@
 <p class="header"><%= link_to 'TestGuru', root_path %></p>
 <% if user_signed_in? %>
   <p class="nav">
-    Welcome, <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b> Guru (<%= link_to 'Logout', destroy_user_session_path, method: :delete %>)</p>
+    <%= t('.welcome_message', first_name: current_user.first_name, last_name: current_user.last_name) %>
+    (<%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>)</p>
 <% else %>
   <p class="nav">
-    <%= link_to 'Signup', new_user_registration_path %> / <%= link_to 'Login', new_user_session_path %>
+    <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %> / <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
   </p>
 <% end %>

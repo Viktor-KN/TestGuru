@@ -3,8 +3,8 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  validates :body, presence: true
   validate :validate_max_answers_per_question, on: :create
+  validates :body, presence: true
 
   scope :correct, -> { where(correct: true) }
 
@@ -12,7 +12,7 @@ class Answer < ApplicationRecord
 
   def validate_max_answers_per_question
     if question.answers.count >= MAX_ANSWERS_PER_QUESTION
-      errors.add(:question_id, "Maximum answers per question reached")
+      errors.add(:base, I18n.t('shared.errors.max_answers_error', count: MAX_ANSWERS_PER_QUESTION))
     end
   end
 end

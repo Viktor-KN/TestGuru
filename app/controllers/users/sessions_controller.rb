@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   def create
     super
-    flash[:greeting] = "Привет, #{current_user.first_name}!"
+    flash[:greeting] = I18n.t('hello', first_name: current_user.first_name)
   end
 end

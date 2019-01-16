@@ -1,18 +1,18 @@
 <p>
-  <strong>Question:</strong>
+  <strong><%= t('activerecord.models.question') %>:</strong>
   <%= @answer.question.body %>
 </p>
 
 <p>
-  <strong>Answer:</strong>
+  <strong><%= t('activerecord.models.answer') %>:</strong>
   <%= @answer.body %>
 </p>
 
 <p>
-  <strong>Correct:</strong>
-  <%= @answer.correct %>
+  <strong><%= t('activerecord.attributes.answer.correct') %>:</strong>
+  <%= t("admin.answers.answer.correct.#{@answer.correct}") %>
 </p>
 
-<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
-<%= link_to'Delete', admin_answer_path(@answer), method: :delete, data: {confirm: 'Really?'} %> |
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+<%= link_to t('shared.edit'), edit_admin_answer_path(@answer) %> |
+<%= link_to t('shared.delete'), admin_answer_path(@answer), method: :delete, data: {confirm: t('shared.are_you_sure')} %> |
+<%= link_to t('shared.back'), admin_question_path(@answer.question) %>

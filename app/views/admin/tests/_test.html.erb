@@ -2,8 +2,8 @@
   <td><%= test.title %></td>
   <td><%= test.category.title %></td>
   <td><%= test.level %></td>
-  <td><%= pluralize(test.questions.count, 'question') %></td>
-  <td><%= link_to 'Show', admin_test_path(test) %></td>
-  <td><%= link_to 'Edit', edit_admin_test_path(test) %></td>
-  <td><%= link_to 'Delete', admin_test_path(test), method: :delete, data: { confirm: 'Really?' } %></td>
+  <td><%= t('tests.test.questions_count', count: test.questions.count) %></td>
+  <td><%= link_to t('shared.show'), admin_test_path(test) %></td>
+  <td><%= link_to t('shared.edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('shared.delete'), admin_test_path(test), method: :delete, data: { confirm: t('shared.are_you_sure') } %></td>
 </tr>
