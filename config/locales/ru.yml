@@ -1,2 +1,95 @@
 ru:
-  hello: 'Привет'
+  tests:
+    index:
+      header: "Тесты"
+      question_count: "Кол-во вопросов"
+      action: "Действие"
+    test:
+      start_test: "Начать"
+      questions_count:
+        few: "%{count} вопроса"
+        many: "%{count} вопросов"
+        one: "%{count} вопрос"
+        other: "%{count} вопросов"
+  activerecord:
+    models:
+      test: "Тест"
+      category: "Категория"
+      answer: "Ответ"
+      question: "Вопрос"
+    attributes:
+      test:
+        category: "Категория"
+        category_id: "Категория"
+        title: "Название"
+        level: "Уровень"
+      question:
+        body: "Текст"
+      answer:
+        body: "Текст"
+        correct: "Правильный ответ"
+  shared:
+    header:
+      welcome_message: "Добро пожаловать, %{first_name} %{last_name} Гуру"
+    footer:
+      project_author: "Виктор Качулин"
+      project: "проект"
+      project_description: "Проект TestGuru предназначен для создания, управления и выполнения различных тестов."
+      thinknetica_link_description: "Учебный проект в онлайн-школе Thinknetica"
+    errors:
+      detected_errors_count:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибок"
+      max_answers_error:
+        few: "Разрешено максимум %{count} ответа"
+        many: "Разрешено максимум %{count} ответов"
+        one: "Разрешен максимум %{count} ответ"
+        other: "Разрешено максимум %{count} ответов"
+    are_you_sure: "Вы уверены?"
+    back: "Назад"
+    actions: "Действия"
+    show: "Показать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    create_new: "Создать новый"
+    new_question: "Новый вопрос"
+    edit_test: "Редактировать тест"
+    delete_test: "Удалить тест"
+    new_answer: "Новый ответ"
+    edit_question: "Редактировать вопрос"
+    delete_question: "Удалить вопрос"
+    helpers:
+      question_form_header: "%{action} вопрос для теста '%{test_title}'"
+      test_form_header: "%{action} тест"
+      answer_form_header: "%{action} ответ для вопроса '%{question_body}'"
+  test_passages:
+    show:
+      header: "Проходим тест %{test_title}"
+      next_question_button: "Следующий вопрос"
+    result:
+      header: "Тест %{test_title} завершен!"
+      test_result: "Вы %{status} этот тест (%{percent}%)"
+      passed: "УСПЕШНО ПРОШЛИ"
+      failed: "НЕ ПРОШЛИ"
+      tests_index: "Список тестов"
+  hello: "Привет %{first_name}!"
+  admin:
+    tests:
+      index:
+        new_test: "Новый тест"
+      show:
+        answer_count: "Кол-во ответов"
+    questions:
+      question:
+        answers_count:
+          few: "%{count} ответа"
+          many: "%{count} ответов"
+          one: "%{count} ответ"
+          other: "%{count} ответов"
+    answers:
+      answer:
+        correct:
+          'true': "да"
+          'false': "нет"

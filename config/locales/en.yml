@@ -30,4 +30,89 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  tests:
+    index:
+      header: "Tests"
+      question_count: "Questions count"
+      action: "Action"
+    test:
+      start_test: "Start"
+      questions_count:
+        one: "%{count} question"
+        other: "%{count} questions"
+  activerecord:
+    models:
+      test: "Test"
+      category: "Category"
+      answer: "Answer"
+      question: "Question"
+    attributes:
+      test:
+        category: "Category"
+        category_id: "Category"
+        title: "Title"
+        level: "Level"
+      question:
+        body: "Text"
+      answer:
+        body: "Text"
+        correct: "Correct answer"
+  shared:
+    header:
+      welcome_message: "Welcome, %{first_name} %{last_name} Guru"
+    footer:
+      project_author: "Viktor Kachulin"
+      project: "project"
+      project_description: "The TestGuru project is intended for creation, management and passing of various tests."
+      thinknetica_link_description: "The educational project at Thinknetica online school"
+    errors:
+      detected_errors_count:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+      max_answers_error:
+        one: "Maximum %{count} answer allowed"
+        other: "Maximum %{count} answers allowed"
+    are_you_sure: "Are you sure?"
+    back: "Back"
+    actions: "Actions"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    create_new: "Create new"
+    new_question: "New question"
+    edit_test: "Edit test"
+    delete_test: "Delete test"
+    new_answer: "New answer"
+    edit_question: "Edit answer"
+    delete_question: "Delete question"
+    helpers:
+      question_form_header: "%{action} question for test '%{test_title}'"
+      test_form_header: "%{action} test"
+      answer_form_header: "%{action} answer for question '%{question_body}'"
+  test_passages:
+    show:
+      header: "Passing the %{test_title} Test"
+      next_question_button: "Next question"
+    result:
+      header: "The %{test_title} Test was completed!"
+      test_result: "You %{status} the test (%{percent}%)"
+      passed: "PASSED"
+      failed: "FAILED"
+      tests_index: "Tests Index"
+  hello: "Hello %{first_name}!"
+  admin:
+    tests:
+      index:
+        new_test: "New test"
+      show:
+        answer_count: "Answers count"
+    questions:
+      question:
+        answers_count:
+          one: "%{count} answer"
+          other: "%{count} answers"
+    answers:
+      answer:
+        correct:
+          'true': "yes"
+          'false': "no"

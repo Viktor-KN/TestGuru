@@ -2,6 +2,6 @@
   <td><%= test.title %></td>
   <td><%= test.category.title %></td>
   <td><%= test.level %></td>
-  <td><%= pluralize(test.questions.count, 'question') %></td>
-  <td><%= button_to 'Start', start_test_path(test) %></td>
+  <td><%= t('.questions_count', count: test.questions.count) %></td>
+  <td><%= button_to t('.start_test'), start_test_path(test) %></td>
 </tr>

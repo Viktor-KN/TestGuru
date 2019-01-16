@@ -1,4 +1,4 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.header', test_title: @test_passage.test.title) %></h1>
 
 <p>
   (<%= test_progress(@test_passage) %>)
@@ -15,7 +15,7 @@
     <% end %>
 
     <div class="actions">
-      <%= form.submit 'Next' %>
+      <%= form.submit t('.next_question_button') %>
     </div>
   <% end %>
 </div>
