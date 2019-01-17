@@ -99,7 +99,6 @@ en:
       passed: "PASSED"
       failed: "FAILED"
       tests_index: "Tests Index"
-  hello: "Hello %{first_name}!"
   admin:
     tests:
       index:

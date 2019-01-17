@@ -74,7 +74,6 @@ ru:
       passed: "УСПЕШНО ПРОШЛИ"
       failed: "НЕ ПРОШЛИ"
       tests_index: "Список тестов"
-  hello: "Привет %{first_name}!"
   admin:
     tests:
       index:

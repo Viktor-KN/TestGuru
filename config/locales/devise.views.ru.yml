@@ -120,6 +120,8 @@ ru:
         sign_in: Войти
       signed_in: Вход в систему выполнен.
       signed_out: Выход из системы выполнен.
+      user:
+        hello: "Привет %{first_name}!"
     shared:
       links:
         back: Назад
