@@ -32,6 +32,9 @@ gem 'devise', '~> 4.5.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.2.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

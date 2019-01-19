@@ -1,4 +1,8 @@
 <%= render 'form' %>
 
-<%= link_to t('shared.show'), admin_answer_path(@answer) %> |
-<%= link_to t('shared.back'), admin_question_path(@answer.question) %>
+<div class="row justify-content-center">
+  <div class="col col-md-8 nav">
+    <%= link_to t('shared.show'), admin_answer_path(@answer), class: 'nav-link' %>
+    <%= link_to t('shared.back'), admin_question_path(@answer.question), class: 'nav-link' %>
+  </div>
+</div>
