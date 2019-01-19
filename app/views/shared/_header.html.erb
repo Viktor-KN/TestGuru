@@ -1,10 +1,17 @@
-<p class="header"><%= link_to 'TestGuru', root_path %></p>
-<% if user_signed_in? %>
-  <p class="nav">
-    <%= t('.welcome_message', first_name: current_user.first_name, last_name: current_user.last_name) %>
-    (<%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>)</p>
-<% else %>
-  <p class="nav">
-    <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %> / <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
-  </p>
-<% end %>
+<nav class="header navbar navbar-light bg-light">
+  <%= link_to 'TestGuru', root_path, class: "navbar-brand" %>
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+      <%= t('.welcome_message', first_name: current_user.first_name, last_name: current_user.last_name) %> |
+
+      <% if current_user.admin? %>
+        <%= link_to t('shared.admin_panel'), admin_tests_path %> |
+      <% end %>
+
+      <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %> |
+      <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
+    <% end %>
+  </span>
+</nav>

@@ -1,4 +1,10 @@
 <% flash.each do |key, message| %>
-  <%= content_tag :p, message, class: "flash #{key}" %>
-  <br>
+  <div class="row justify-content-center">
+    <%= content_tag :div, class: "col col-md-6 alert #{key_to_style(key)} alert-dismissible fade show", role: 'alert' do %>
+      <%= message %>
+      <button type="button" class="close" data-dismiss="alert" aria-label=<%= t('shared.close') %>>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <% end %>
+  </div>
 <% end %>

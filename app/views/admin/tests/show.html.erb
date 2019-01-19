@@ -13,22 +13,26 @@
   <%= @test.level %>
 </p>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.models.question') %></th>
-    <th><%= t('.answer_count') %></th>
-    <th colspan="3"><%= t('shared.actions') %></th>
-  </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"><%= t('activerecord.models.question') %></th>
+      <th scope="col"><%= t('.answer_count') %></th>
+      <th scope="col" colspan="3" class="text-center"><%= t('shared.actions') %></th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <%= render @test.questions %>
-  </tbody>
-</table>
-<br>
-
-<%= link_to t('shared.new_question'), new_admin_test_question_path(@test) %> |
-<%= link_to t('shared.edit_test'), edit_admin_test_path(@test) %> |
-<%= link_to t('shared.delete_test'), admin_test_path(@test), method: :delete, data: { confirm: t('shared.are_you_sure') } %> |
-<%= link_to t('shared.back'), admin_tests_path %>
+    <tbody>
+    <%= render @test.questions %>
+    </tbody>
+  </table>
+</div>
+<div class="row justify-content-center">
+  <div class="col nav">
+    <%= link_to t('shared.new_question'), new_admin_test_question_path(@test), class: 'nav-link' %>
+    <%= link_to t('shared.edit_test'), edit_admin_test_path(@test), class: 'nav-link' %>
+    <%= link_to t('shared.delete_test'), admin_test_path(@test), method: :delete, data: { confirm: t('shared.are_you_sure') }, class: 'nav-link' %>
+    <%= link_to t('shared.back'), admin_tests_path, class: 'nav-link' %>
+  </div>
+</div>

@@ -40,6 +40,11 @@ en:
       questions_count:
         one: "%{count} question"
         other: "%{count} questions"
+      card_category: "Category: %{category}"
+      card_level: "Level: %{level}"
+      level_easy: "Easy"
+      level_advanced: "Advanced"
+      level_hard: "Hard"
   activerecord:
     models:
       test: "Test"
@@ -89,6 +94,8 @@ en:
       question_form_header: "%{action} question for test '%{test_title}'"
       test_form_header: "%{action} test"
       answer_form_header: "%{action} answer for question '%{question_body}'"
+    close: "Close"
+    admin_panel: "Admin"
   test_passages:
     show:
       header: "Passing the %{test_title} Test"

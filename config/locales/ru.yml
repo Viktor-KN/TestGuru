@@ -11,6 +11,11 @@ ru:
         many: "%{count} вопросов"
         one: "%{count} вопрос"
         other: "%{count} вопросов"
+      card_category: "Категория: %{category}"
+      card_level: "Уровень: %{level}"
+      level_easy: "Легкий"
+      level_advanced: "Продвинутый"
+      level_hard: "Сложный"
   activerecord:
     models:
       test: "Тест"
@@ -64,6 +69,8 @@ ru:
       question_form_header: "%{action} вопрос для теста '%{test_title}'"
       test_form_header: "%{action} тест"
       answer_form_header: "%{action} ответ для вопроса '%{question_body}'"
+    close: "Закрыть"
+    admin_panel: "Админ"
   test_passages:
     show:
       header: "Проходим тест %{test_title}"

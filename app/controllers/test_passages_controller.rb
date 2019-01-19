@@ -2,7 +2,9 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show result update]
 
-  def show; end
+  def show
+    redirect_to result_test_passage_path(@test_passage) unless @test_passage.current_question
+  end
 
   def result; end
 

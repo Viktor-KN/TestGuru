@@ -13,6 +13,10 @@
   <%= t("admin.answers.answer.correct.#{@answer.correct}") %>
 </p>
 
-<%= link_to t('shared.edit'), edit_admin_answer_path(@answer) %> |
-<%= link_to t('shared.delete'), admin_answer_path(@answer), method: :delete, data: {confirm: t('shared.are_you_sure')} %> |
-<%= link_to t('shared.back'), admin_question_path(@answer.question) %>
+<div class="row justify-content-center">
+  <div class="col nav">
+    <%= link_to t('shared.edit'), edit_admin_answer_path(@answer), class: 'nav-link' %>
+    <%= link_to t('shared.delete'), admin_answer_path(@answer), method: :delete, data: { confirm: t('shared.are_you_sure') }, class: 'nav-link' %>
+    <%= link_to t('shared.back'), admin_question_path(@answer.question), class: 'nav-link' %>
+  </div>
+</div>

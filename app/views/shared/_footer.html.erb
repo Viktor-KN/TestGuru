@@ -1,10 +1,10 @@
-<div class="footer">
-  <p>
-    &copy;<%= current_year %>
-    <%= t('.project_author') %>,
-    <%= t('.project') %>:
-    <%= link_to 'TestGuru', github_url('Viktor-KN', 'TestGuru'), target: '_blank' %>
-  </p>
-  <p><%= t('.project_description') %></p>
-  <p><%= link_to t('.thinknetica_link_description'), 'http://thinknetica.com/', target: '_blank' %></p>
-</div>
+<nav class="footer navbar navbar-light bg-light">
+  <dl>
+    <dt>&copy;<%= current_year %>
+      <%= t('.project_author') %>,
+      <%= t('.project') %>:
+      <%= link_to 'TestGuru', github_url('Viktor-KN', 'TestGuru'), target: '_blank' %></dt>
+    <dd><%= t('.project_description') %></dd>
+    <dd><%= link_to t('.thinknetica_link_description'), 'http://thinknetica.com/', target: '_blank' %></dd>
+  </dl>
+</nav>

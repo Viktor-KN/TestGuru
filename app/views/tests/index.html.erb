@@ -1,17 +1,4 @@
-<h1><%= t('.header') %></h1>
-
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.models.test') %></th>
-    <th><%= t('activerecord.models.category') %></th>
-    <th><%= t('activerecord.attributes.test.level') %></th>
-    <th><%= t('.question_count') %></th>
-    <th><%= t('.action') %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render @tests %>
-  </tbody>
-</table>
-<br>
+<h1 class="text-center mb-4"><%= t('.header') %></h1>
+<div class="row">
+      <%= render @tests %>
+</div>

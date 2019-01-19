@@ -1,24 +1,25 @@
-<h1><%= test_form_header(@test) %></h1>
+<%= render 'shared/errors', resource: @test %>
+<div class="row justify-content-center">
+  <div class="col col-md-8">
+    <h2><%= test_form_header(@test) %></h2>
 
-<%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>
+    <%= form_with model: [:admin, @test], local: true do |form| %>
+      <div class="form-group">
+        <p>
+          <%= form.label :title %>
+          <%= form.text_field :title, class: 'form-control' %>
+        </p>
+        <p>
+          <%= form.label :level %>
+          <%= form.number_field :level, class: 'form-control' %>
+        </p>
+        <p class="mb-2">
+          <%= form.label :category_id %>
+          <%= form.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true, class: 'form-control' %>
+        </p>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :level %>
-    <%= form.number_field :level %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
