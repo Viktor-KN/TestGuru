@@ -5,13 +5,14 @@ module TestsHelper
   end
 
   def test_level(test)
-    case test.level
-    when 0..1
-      I18n.t('tests.test.level_easy')
-    when 2..4
-      I18n.t('tests.test.level_advanced')
-    when 5..Float::INFINITY
-      I18n.t('tests.test.level_hard')
-    end
+    translation_path = case test.level
+                       when 0..1
+                         'tests.test.level_easy'
+                       when 2..4
+                         'tests.test.level_advanced'
+                       when 5..Float::INFINITY
+                         'tests.test.level_hard'
+                       end
+    I18n.t(translation_path)
   end
 end
