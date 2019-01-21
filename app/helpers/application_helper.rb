@@ -1,5 +1,6 @@
 module ApplicationHelper
   STYLE_KEYS = { greeting: 'info', notice: 'success', alert: 'danger' }.freeze
+
   def current_year
     Time.current.year
   end
