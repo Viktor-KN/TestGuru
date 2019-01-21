@@ -100,12 +100,16 @@ en:
     show:
       header: "Passing the %{test_title} Test"
       next_question_button: "Next question"
+      gist_question: "Gist Question"
     result:
       header: "The %{test_title} Test was completed!"
       test_result: "You %{status} the test (%{percent}%)"
       passed: "PASSED"
       failed: "FAILED"
       tests_index: "Tests Index"
+    gist:
+      success: "%{link} was successfully created!"
+      failure: "An error occurred while saving gist."
   admin:
     tests:
       index:
@@ -122,3 +126,6 @@ en:
         correct:
           'true': "yes"
           'false': "no"
+  services:
+    gist:
+      title: "A question about %{test_title} from TestGuru"

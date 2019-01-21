@@ -2,7 +2,7 @@
   <div class="col col-md-8">
     <h2><%= t('.header', test_title: @test_passage.test.title) %></h2>
 
-    <p>
+    <p class="font-weight-bold">
       (<%= test_progress(@test_passage) %>)
       <%= @test_passage.current_question.body %>
     </p>
@@ -15,6 +15,8 @@
             <%= b.label id: "answer_ids_#{b.object.id}", class: 'form-check-label' %>
           </div>
         <% end %>
+
+        <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-link' %><br>
 
         <%= form.submit t('.next_question_button') %>
       </div>
