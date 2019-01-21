@@ -75,12 +75,16 @@ ru:
     show:
       header: "Проходим тест %{test_title}"
       next_question_button: "Следующий вопрос"
+      gist_question: "Создать gist по вопросу"
     result:
       header: "Тест %{test_title} завершен!"
       test_result: "Вы %{status} этот тест (%{percent}%)"
       passed: "УСПЕШНО ПРОШЛИ"
       failed: "НЕ ПРОШЛИ"
       tests_index: "Список тестов"
+    gist:
+      success: "%{link} успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка."
   admin:
     tests:
       index:
@@ -99,3 +103,6 @@ ru:
         correct:
           'true': "да"
           'false': "нет"
+  services:
+    gist:
+      title: "Вопрос о %{test_title} от TestGuru"

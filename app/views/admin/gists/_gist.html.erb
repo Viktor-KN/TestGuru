@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to gist.question.body[0, 25], admin_question_path(gist.question) %></td>
+  <td><%= link_to gist.hash_string, github_gist_url(gist) %></td>
+  <td><%= gist.user.email %></td>
+</tr>

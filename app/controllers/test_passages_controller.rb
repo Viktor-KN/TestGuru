@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_test_passage, only: %i[show result update]
+  before_action :find_test_passage, only: %i[show result update gist]
 
   def show
     redirect_to result_test_passage_path(@test_passage) unless @test_passage.current_question
@@ -15,6 +15,21 @@ class TestPassagesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@test_passage.current_question).call
+
+    if result[:success]
+      Gist.create!(question: @test_passage.current_question, hash_string: result[:id], user: @test_passage.user)
+      # redirect_to не воспринимает других ключей кроме :alert, :notice и т.п., и из-за этого не удается выборочно
+      # включить html во flash-сообщениях.
+      flash[:notice_html] = t('.success', link: view_context.link_to('Gist', result[:html_url]))
+    else
+      flash[:alert] = t('.failure')
+    end
+
+    redirect_to test_passage_path(@test_passage)
   end
 
   private
