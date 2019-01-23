@@ -7,7 +7,7 @@ class GistQuestionService
 
   def call
     response = @client.create_gist(gist_params)
-    response.extend(GistQuestionResultDecorator)
+    GistQuestionResultDecorator.new(response)
   end
 
   private
