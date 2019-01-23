@@ -20,10 +20,8 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    if result[:success]
-      Gist.create!(question: @test_passage.current_question, hash_string: result[:id], user: @test_passage.user)
-      # redirect_to не воспринимает других ключей кроме :alert, :notice и т.п., и из-за этого не удается выборочно
-      # включить html во flash-сообщениях.
+    if result.success?
+      Gist.create!(question: @test_passage.current_question, url: result[:html_url], user: @test_passage.user)
       flash[:notice_html] = t('.success', link: view_context.link_to('Gist', result[:html_url]))
     else
       flash[:alert] = t('.failure')

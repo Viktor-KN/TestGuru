@@ -5,12 +5,14 @@ Rails.application.routes.draw do
                      controllers: { sessions: 'users/sessions' }
 
   resources :tests, only: %i[index] do
-    post 'start', on: :member
+    post :start, on: :member
   end
 
   resources :test_passages, only: %i[show update] do
-    get 'result', on: :member
-    post 'gist', on: :member
+    member do
+      get :result
+      post :gist
+    end
   end
 
   namespace :admin do
