@@ -1,6 +1,6 @@
 <% flash.each do |key, message| %>
   <div class="row justify-content-center">
-    <%= content_tag :div, class: "col col-md-6 alert #{key_to_style(trim_key_html_ending(key))} alert-dismissible fade show", role: 'alert' do %>
+    <%= content_tag :div, class: "col col-md-6 alert #{key_to_style(key)} alert-dismissible fade show", role: 'alert' do %>
       <%= html_safe_flash_key?(key) ? message.html_safe : message %>
       <button type="button" class="close" data-dismiss="alert" aria-label=<%= t('shared.close') %>>
         <span aria-hidden="true">&times;</span>
