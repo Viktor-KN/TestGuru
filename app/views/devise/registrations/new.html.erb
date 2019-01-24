@@ -17,17 +17,24 @@
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </p>
-        <p>
+        <div class="mb-3">
           <%= f.label :password %>
           <% if @minimum_password_length %>
             <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
           <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-        </p>
-        <p>
+          <div class="inner-addon right-addon">
+            <%= octicon 'check', width: 38, height: 38, class: 'text-success hide' %>
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="mb-3">
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
-        </p>
+          <div class="inner-addon right-addon">
+            <%= octicon 'alert', width: 38, height: 38, class: 'text-danger hide' %>
+            <%= octicon 'check', width: 38, height: 38, class: 'text-success hide' %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+        </div>
 
         <%= f.submit t('.sign_up') %>
       </div>

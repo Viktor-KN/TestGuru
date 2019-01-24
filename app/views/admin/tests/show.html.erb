@@ -17,7 +17,11 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col"><%= t('activerecord.models.question') %></th>
+      <th scope="col" class="sort-by-title pointer">
+        <%= t('activerecord.models.question') %>
+        <%= octicon 'triangle-up', class: 'text-success hide' %>
+        <%= octicon 'triangle-down', class: 'text-success hide' %>
+      </th>
       <th scope="col"><%= t('.answer_count') %></th>
       <th scope="col" colspan="3" class="text-center"><%= t('shared.actions') %></th>
     </tr>

@@ -4,7 +4,11 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col"><%= t('activerecord.models.test') %></th>
+      <th scope="col" class="sort-by-title pointer">
+        <%= t('activerecord.models.test') %>
+        <%= octicon 'triangle-up', class: 'text-success hide' %>
+        <%= octicon 'triangle-down', class: 'text-success hide' %>
+      </th>
       <th scope="col"><%= t('activerecord.attributes.test.category') %></th>
       <th scope="col"><%= t('activerecord.attributes.test.level') %></th>
       <th scope="col"><%= t('tests.index.question_count') %></th>
