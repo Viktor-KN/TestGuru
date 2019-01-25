@@ -1,48 +1,48 @@
-let password_control
-let password_confirm_control
+let passwordControl;
+let passwordConfirmControl;
 
 document.addEventListener('turbolinks:load', function () {
-    password_control = document.getElementById('user_password')
-    password_confirm_control = document.getElementById('user_password_confirmation')
+    passwordControl = document.getElementById('user_password');
+    passwordConfirmControl = document.getElementById('user_password_confirmation');
 
-    if (password_control && password_confirm_control ) {
-        password_control.addEventListener('input', checkPasswordsMatch)
-        password_confirm_control.addEventListener('input', checkPasswordsMatch)
+    if (passwordControl && passwordConfirmControl ) {
+        passwordControl.addEventListener('input', checkPasswordsMatch);
+        passwordConfirmControl.addEventListener('input', checkPasswordsMatch);
     }
-})
+});
 
 function checkPasswordsMatch() {
-    if (password_confirm_control.value.length === 0) {
-        disableAllIcons()
-        return
+    if (passwordConfirmControl.value.length === 0) {
+        disableAllIcons();
+        return;
     }
 
-    if (password_control.value === password_confirm_control.value) {
-        enableCheckIcons()
-        return
+    if (passwordControl.value === passwordConfirmControl.value) {
+        enableCheckIcons();
+        return;
     }
 
-    enableAlertIcon()
+    enableAlertIcon();
 }
 
 function disableIcons(icons) {
     for (let i = 0; i < icons.length; i++) {
-        icons[i].classList.add('hide')
+        icons[i].classList.add('hide');
     }
 }
 
 function disableAllIcons() {
-    disableIcons(password_control.parentNode.querySelectorAll('.octicon'))
-    disableIcons(password_confirm_control.parentNode.querySelectorAll('.octicon'))
+    disableIcons(passwordControl.parentNode.querySelectorAll('.octicon'));
+    disableIcons(passwordConfirmControl.parentNode.querySelectorAll('.octicon'));
 }
 
 function enableAlertIcon() {
-    disableAllIcons()
-    password_confirm_control.parentNode.querySelector('.octicon-alert').classList.remove('hide')
+    disableAllIcons();
+    passwordConfirmControl.parentNode.querySelector('.octicon-alert').classList.remove('hide');
 }
 
 function enableCheckIcons() {
-    disableAllIcons()
-    password_control.parentNode.querySelector('.octicon-check').classList.remove('hide')
-    password_confirm_control.parentNode.querySelector('.octicon-check').classList.remove('hide')
+    disableAllIcons();
+    passwordControl.parentNode.querySelector('.octicon-check').classList.remove('hide');
+    passwordConfirmControl.parentNode.querySelector('.octicon-check').classList.remove('hide');
 }
