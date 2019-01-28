@@ -96,6 +96,7 @@ en:
       answer_form_header: "%{action} answer for question '%{question_body}'"
     close: "Close"
     admin_panel: "Admin"
+    cancel: "Cancel"
   test_passages:
     show:
       header: "Passing the %{test_title} Test"
@@ -116,6 +117,8 @@ en:
         new_test: "New test"
       show:
         answer_count: "Answers count"
+      form_inline:
+        submit: "OK"
     questions:
       question:
         answers_count:

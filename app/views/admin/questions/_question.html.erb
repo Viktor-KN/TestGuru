@@ -1,7 +1,7 @@
 <tr>
-  <td><%= question.body %></td>
-  <td><%= t('.answers_count', count: question.answers.count) %></td>
-  <td><%= link_to t('shared.show'), admin_question_path(question) %></td>
-  <td><%= link_to t('shared.edit'), edit_admin_question_path(question) %></td>
-  <td><%= link_to t('shared.delete'), admin_question_path(question), method: :delete, data: { confirm: t('shared.are_you_sure') } %></td>
+  <td class="align-middle"><%= question.body %></td>
+  <td class="align-middle"><%= t('.answers_count', count: question.answers.count) %></td>
+  <td class="align-middle"><%= link_to t('shared.show'), admin_question_path(question) %></td>
+  <td class="align-middle"><%= link_to t('shared.edit'), edit_admin_question_path(question) %></td>
+  <td class="align-middle"><%= link_to t('shared.delete'), admin_question_path(question), method: :delete, data: { confirm: t('shared.are_you_sure') } %></td>
 </tr>
