@@ -71,6 +71,7 @@ ru:
       answer_form_header: "%{action} ответ для вопроса '%{question_body}'"
     close: "Закрыть"
     admin_panel: "Админ"
+    cancel: "Отмена"
   test_passages:
     show:
       header: "Проходим тест %{test_title}"
@@ -91,6 +92,8 @@ ru:
         new_test: "Новый тест"
       show:
         answer_count: "Кол-во ответов"
+      form_inline:
+        submit: "OK"
     questions:
       question:
         answers_count:

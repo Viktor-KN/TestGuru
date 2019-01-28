@@ -1,9 +1,17 @@
 <tr>
-  <td><%= test.title %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.level %></td>
-  <td><%= t('tests.test.questions_count', count: test.questions.count) %></td>
-  <td><%= link_to t('shared.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('shared.edit'), edit_admin_test_path(test) %></td>
-  <td><%= link_to t('shared.delete'), admin_test_path(test), method: :delete, data: { confirm: t('shared.are_you_sure') } %></td>
+  <td class="align-middle">
+    <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
+  <td class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle"><%= test.level %></td>
+  <td class="align-middle"><%= t('tests.test.questions_count', count: test.questions.count) %></td>
+  <td class="align-middle"><%= link_to t('shared.show'), admin_test_path(test) %></td>
+  <td class="align-middle">
+    <%= link_to t('shared.edit'),
+                edit_admin_test_path(test),
+                class: 'form-inline-link',
+                data: { test_id: test.id, edit_text: t('shared.edit'), cancel_text: t('shared.cancel') } %>
+  </td>
+  <td class="align-middle"><%= link_to t('shared.delete'), admin_test_path(test), method: :delete, data: { confirm: t('shared.are_you_sure') } %></td>
 </tr>

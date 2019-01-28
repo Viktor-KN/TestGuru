@@ -2,6 +2,12 @@
   <div class="col col-md-8">
     <h2><%= t('.header', test_title: @test_passage.test.title) %></h2>
 
+    <%= content_tag :div,
+                    class: 'text-center mt-3 mb-3 border border-primary progress-container',
+                    data: { current_question_index: @test_passage.current_question_index,
+                            questions_count: @test_passage.test.questions.count } do %>
+      <div class="float-left bg-primary progress-filler" style="width: 0%">&nbsp</div>
+    <% end %>
     <p class="font-weight-bold">
       (<%= test_progress(@test_passage) %>)
       <%= @test_passage.current_question.body %>
@@ -16,7 +22,7 @@
           </div>
         <% end %>
 
-        <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-link' %><br>
+        <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-link mb-2' %><br>
 
         <%= form.submit t('.next_question_button') %>
       </div>
