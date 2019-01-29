@@ -1,12 +1,12 @@
 document.addEventListener('turbolinks:load', function () {
-    let $formInlineLink = $('.form-inline-link');
+    var $formInlineLink = $('.form-inline-link');
 
     $formInlineLink.on('click', formInlineLinkHandler);
 
-    let errors = document.querySelector('.resource-errors');
+    var errors = document.querySelector('.resource-errors');
 
     if (errors && $formInlineLink.length > 0) {
-        let resourceId = errors.dataset.resourceId;
+        var resourceId = errors.dataset.resourceId;
         formInlineHandler(resourceId);
     }
 });
@@ -14,17 +14,17 @@ document.addEventListener('turbolinks:load', function () {
 function formInlineLinkHandler(event) {
     event.preventDefault();
 
-    let testId = this.dataset.testId;
+    var testId = this.dataset.testId;
     formInlineHandler(testId);
 }
 
 function formInlineHandler(testId) {
-    let link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]');
-    let editText = link.dataset.editText;
-    let cancelText = link.dataset.cancelText;
+    var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]');
+    var editText = link.dataset.editText;
+    var cancelText = link.dataset.cancelText;
 
-    let $testTitle = $('.test-title[data-test-id="' + testId + '"]');
-    let $formInline = $('.form-inline[data-test-id="' + testId + '"]');
+    var $testTitle = $('.test-title[data-test-id="' + testId + '"]');
+    var $formInline = $('.form-inline[data-test-id="' + testId + '"]');
 
     $testTitle.toggle();
     $formInline.toggle();

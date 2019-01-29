@@ -1,5 +1,5 @@
-let passwordControl;
-let passwordConfirmControl;
+var passwordControl;
+var passwordConfirmControl;
 
 document.addEventListener('turbolinks:load', function () {
     passwordControl = document.getElementById('user_password');
@@ -26,7 +26,7 @@ function checkPasswordsMatch() {
 }
 
 function disableIcons(icons) {
-    for (let i = 0; i < icons.length; i++) {
+    for (var i = 0; i < icons.length; i++) {
         icons[i].classList.add('hide');
     }
 }
