@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: %("TestGuru" <do-not-reply@mailgun.prorust.ru>)
   layout 'mailer'
 end
