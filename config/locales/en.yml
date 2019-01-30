@@ -70,6 +70,7 @@ en:
       project: "project"
       project_description: "The TestGuru project is intended for creation, management and passing of various tests."
       thinknetica_link_description: "The educational project at Thinknetica online school"
+      feedback_link: "Feedback"
     errors:
       detected_errors_count:
         one: "%{count} error detected"
