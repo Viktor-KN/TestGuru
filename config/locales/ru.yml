@@ -41,6 +41,7 @@ ru:
       project: "проект"
       project_description: "Проект TestGuru предназначен для создания, управления и выполнения различных тестов."
       thinknetica_link_description: "Учебный проект в онлайн-школе Thinknetica"
+      feedback_link: "Отзыв"
     errors:
       detected_errors_count:
         few: "Обнаружено %{count} ошибки"
