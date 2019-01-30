@@ -132,3 +132,13 @@ en:
   services:
     gist:
       title: "A question about %{test_title} from TestGuru"
+  feedbacks:
+    form:
+      new_feedback: "New feedback"
+      send: "Send"
+      title: "Subject"
+      body: "Text"
+    feedback_sent: "Feedback successfully sent"
+  recaptcha:
+    errors:
+      verification_failed: "reCAPTCHA verification failed, please try again."

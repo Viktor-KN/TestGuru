@@ -109,3 +109,13 @@ ru:
   services:
     gist:
       title: "Вопрос о %{test_title} от TestGuru"
+  feedbacks:
+    form:
+      new_feedback: "Оставить отзыв"
+      send: "Отправить"
+      title: "Тема"
+      body: "Текст"
+    feedback_sent: "Отзыв успешно отправлен"
+  recaptcha:
+    errors:
+      verification_failed: "Верификация reCAPTCHA окончилась неудачей, попробуйте снова."
