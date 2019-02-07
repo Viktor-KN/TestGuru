@@ -3,12 +3,7 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       <%= t('.welcome_message', first_name: current_user.first_name, last_name: current_user.last_name) %> |
-
-      <% if current_user.admin? %>
-        <%= link_to t('shared.admin_panel'), admin_tests_path %> |
-        <%= link_to 'Gists', admin_gists_path %> |
-      <% end %>
-
+      <%= link_to t('.badges'), badges_path %> |
       <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %> |

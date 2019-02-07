@@ -22,6 +22,7 @@ ru:
       category: "Категория"
       answer: "Ответ"
       question: "Вопрос"
+      badge: "Бэйдж"
     attributes:
       test:
         category: "Категория"
@@ -33,9 +34,16 @@ ru:
       answer:
         body: "Текст"
         correct: "Правильный ответ"
+      badge:
+        name: "Название"
+        description: "Описание"
+        image_url: "URL изображения"
+        check_type: "Тип проверки"
+        param: "Параметр"
   shared:
     header:
       welcome_message: "Добро пожаловать, %{first_name} %{last_name} Гуру"
+      badges: "Бэйджи"
     footer:
       project_author: "Виктор Качулин"
       project: "проект"
@@ -53,6 +61,7 @@ ru:
         many: "Разрешено максимум %{count} ответов"
         one: "Разрешен максимум %{count} ответ"
         other: "Разрешено максимум %{count} ответов"
+      param_must_present: "%{name} не может быть пустым"
     are_you_sure: "Вы уверены?"
     back: "Назад"
     actions: "Действия"
@@ -70,9 +79,14 @@ ru:
       question_form_header: "%{action} вопрос для теста '%{test_title}'"
       test_form_header: "%{action} тест"
       answer_form_header: "%{action} ответ для вопроса '%{question_body}'"
+      badge_form_header: "%{action} бэйдж"
     close: "Закрыть"
     admin_panel: "Админ"
     cancel: "Отмена"
+    choose: "Выберите:"
+    new_badge: "Новый бэйдж"
+    edit_badge: "Редактировать бэйдж"
+    delete_badge: "Удалить бэйдж"
   test_passages:
     show:
       header: "Проходим тест %{test_title}"
@@ -107,6 +121,9 @@ ru:
         correct:
           'true': "да"
           'false': "нет"
+    badges:
+      index:
+        header: "Бэйджи"
   services:
     gist:
       title: "Вопрос о %{test_title} от TestGuru"
@@ -120,3 +137,16 @@ ru:
   recaptcha:
     errors:
       verification_failed: "Верификация reCAPTCHA окончилась неудачей, попробуйте снова."
+  badges:
+    check_types:
+      labels:
+        category_completed: "Категория"
+        max_tries_count: "Количество попыток"
+        level_completed: "Уровень"
+      description:
+        category_completed: "Определенная категория тестов полностью завершена"
+        max_tries_count: "Тест завершен за определенное количество попыток"
+        level_completed: "Опредлеленный уровень тестов полностью завершен"
+    new_badges_earned: "Получены новые бэйджи: %{badges}"
+    available_badges: "Доступные бэйджи"
+    earned_badges: "Полученные бэйджи"

@@ -1,0 +1,6 @@
+<%= label_tag :badge_param, t('badges.check_types.labels.category_completed') %>
+<%= select_tag :badge_param,
+               options_from_collection_for_select(Category.all, :id, :title),
+               class: 'form-control',
+               name: 'badge[param]',
+               prompt: t('shared.choose') %>
