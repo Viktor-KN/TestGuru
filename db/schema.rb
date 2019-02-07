@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_134233) do
+ActiveRecord::Schema.define(version: 2019_02_07_111001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,16 +24,36 @@ ActiveRecord::Schema.define(version: 2019_01_21_134233) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "image_url", null: false
+    t.string "check_type", null: false
+    t.string "param", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["check_type", "param"], name: "index_badges_on_check_type_and_param"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "earned_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_earned_badges_on_badge_id"
+    t.index ["user_id"], name: "index_earned_badges_on_user_id"
+  end
+
   create_table "gists", force: :cascade do |t|
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.string "url", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -55,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_134233) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "result"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -97,4 +118,8 @@ ActiveRecord::Schema.define(version: 2019_01_21_134233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "earned_badges", "badges"
+  add_foreign_key "earned_badges", "users"
+  add_foreign_key "gists", "questions"
+  add_foreign_key "gists", "users"
 end

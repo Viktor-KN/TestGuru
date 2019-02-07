@@ -6,6 +6,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_update_set_next_question
+  before_update :before_update_set_result, if: :completed?
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -21,10 +22,10 @@ class TestPassage < ApplicationRecord
   end
 
   def result_success?
-    result_percent >= TEST_RESULT_SUCCESS
+    completed? && result >= TEST_RESULT_SUCCESS
   end
 
-  def result_percent
+  def calc_result_percent
     (correct_questions.to_f / test.questions.count * 100).to_i
   end
 
@@ -48,5 +49,9 @@ class TestPassage < ApplicationRecord
 
   def before_update_set_next_question
     self.current_question = next_question
+  end
+
+  def before_update_set_result
+    self.result = calc_result_percent
   end
 end

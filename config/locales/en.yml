@@ -51,6 +51,7 @@ en:
       category: "Category"
       answer: "Answer"
       question: "Question"
+      badge: "Badge"
     attributes:
       test:
         category: "Category"
@@ -62,9 +63,16 @@ en:
       answer:
         body: "Text"
         correct: "Correct answer"
+      badge:
+        name: "Name"
+        description: "Description"
+        image_url: "Image URL"
+        check_type: "Check type"
+        param: "Param"
   shared:
     header:
       welcome_message: "Welcome, %{first_name} %{last_name} Guru"
+      badges: "Badges"
     footer:
       project_author: "Viktor Kachulin"
       project: "project"
@@ -78,6 +86,7 @@ en:
       max_answers_error:
         one: "Maximum %{count} answer allowed"
         other: "Maximum %{count} answers allowed"
+      param_must_present: "%{name} can't be blank"
     are_you_sure: "Are you sure?"
     back: "Back"
     actions: "Actions"
@@ -95,9 +104,14 @@ en:
       question_form_header: "%{action} question for test '%{test_title}'"
       test_form_header: "%{action} test"
       answer_form_header: "%{action} answer for question '%{question_body}'"
+      badge_form_header: "%{action} badge"
     close: "Close"
     admin_panel: "Admin"
     cancel: "Cancel"
+    choose: "Please select"
+    new_badge: "New badge"
+    edit_badge: "Edit badge"
+    delete_badge: "Delete badge"
   test_passages:
     show:
       header: "Passing the %{test_title} Test"
@@ -130,6 +144,9 @@ en:
         correct:
           'true': "yes"
           'false': "no"
+    badges:
+      index:
+        header: "Badges"
   services:
     gist:
       title: "A question about %{test_title} from TestGuru"
@@ -143,3 +160,16 @@ en:
   recaptcha:
     errors:
       verification_failed: "reCAPTCHA verification failed, please try again."
+  badges:
+    check_types:
+      labels:
+        category_completed: "Category"
+        max_tries_count: "Tries count"
+        level_completed: "Level"
+      description:
+        category_completed: "A certain category of tests is fully completed"
+        max_tries_count: "The test is complete for a certain number of attempts"
+        level_completed: "A certain level of tests is fully completed"
+    new_badges_earned: "New badges earned: %{badges}"
+    available_badges: "Available badges"
+    earned_badges: "Earned badges"

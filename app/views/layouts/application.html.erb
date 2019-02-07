@@ -16,6 +16,10 @@
 <%= render 'shared/header' %>
 
 <div class="container">
+  <% if current_user&.admin? %>
+    <%= render 'shared/admin_links' %>
+  <% end %>
+
   <%= render 'shared/flash' %>
 
   <%= yield %>

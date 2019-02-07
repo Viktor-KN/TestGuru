@@ -1,0 +1,35 @@
+<p>
+  <strong><%= t('activerecord.attributes.badge.name') %>:</strong>
+  <%= @badge.name %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.badge.description') %>:</strong>
+  <%= @badge.description %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.badge.image_url') %>:</strong>
+  <%= @badge.image_url %>
+</p>
+<div>
+  <%= image_tag @badge.image_url %>
+</div>
+<p>
+  <strong><%= t('activerecord.attributes.badge.check_type') %>:</strong>
+  <%= t("badges.check_types.description.#{@badge.check_type}") %>
+</p>
+
+<p>
+  <strong><%= t("badges.check_types.labels.#{@badge.check_type}") %>:</strong>
+  <%= @badge.param %>
+</p>
+
+<div class="row justify-content-center">
+  <div class="col nav">
+    <%= link_to t('shared.new_badge'), new_admin_badge_path(@badge), class: 'nav-link' %>
+    <%= link_to t('shared.edit_badge'), edit_admin_badge_path(@badge), class: 'nav-link' %>
+    <%= link_to t('shared.delete_badge'), admin_badge_path(@badge), method: :delete, data: { confirm: t('shared.are_you_sure') }, class: 'nav-link' %>
+    <%= link_to t('shared.back'), admin_badges_path, class: 'nav-link' %>
+  </div>
+</div>
