@@ -38,10 +38,12 @@ class TestPassagesController < ApplicationController
   end
 
   def check_for_new_badges
-    result = BadgeAssignmentService.new(@test_passage).call
-    unless result.empty?
-      earned_badges = result.map { |earned_badge| earned_badge.badge.name }.join(', ')
-      flash[:notice] = t('badges.new_badges_earned', badges: earned_badges)
+    earned_badges = BadgeAssignmentService.new(@test_passage).call
+
+    unless earned_badges.empty?
+      current_user.badges << earned_badges
+      badge_names = earned_badges.map(&:name).join(', ')
+      flash[:notice] = t('badges.new_badges_earned', badges: badge_names)
     end
   end
 end

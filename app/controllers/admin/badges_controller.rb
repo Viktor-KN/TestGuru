@@ -37,7 +37,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def render_form_control
-    render partial: "admin/badges/form_controls/#{params[:check_type]}" if Badge::CHECK_TYPES.include?(params[:check_type])
+    render partial: "admin/badges/form_controls/#{params[:check_type]}" if Badge.check_types.key?(params[:check_type])
   end
 
   private

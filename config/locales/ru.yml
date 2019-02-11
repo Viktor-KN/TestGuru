@@ -141,11 +141,11 @@ ru:
     check_types:
       labels:
         category_completed: "Категория"
-        max_tries_count: "Количество попыток"
+        max_tries_completed: "Количество попыток"
         level_completed: "Уровень"
       description:
         category_completed: "Определенная категория тестов полностью завершена"
-        max_tries_count: "Тест завершен за определенное количество попыток"
+        max_tries_completed: "Тест завершен за определенное количество попыток"
         level_completed: "Опредлеленный уровень тестов полностью завершен"
     new_badges_earned: "Получены новые бэйджи: %{badges}"
     available_badges: "Доступные бэйджи"

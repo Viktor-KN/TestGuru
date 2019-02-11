@@ -164,11 +164,11 @@ en:
     check_types:
       labels:
         category_completed: "Category"
-        max_tries_count: "Tries count"
+        max_tries_completed: "Tries count"
         level_completed: "Level"
       description:
         category_completed: "A certain category of tests is fully completed"
-        max_tries_count: "The test is complete for a certain number of attempts"
+        max_tries_completed: "The test is complete for a certain number of attempts"
         level_completed: "A certain level of tests is fully completed"
     new_badges_earned: "New badges earned: %{badges}"
     available_badges: "Available badges"
