@@ -1,5 +1,5 @@
 class Badge < ApplicationRecord
-  CHECK_TYPES = %w[category_completed max_tries_count level_completed].freeze
+  enum check_type: %i[category_completed max_tries_completed level_completed]
 
   has_many :earned_badges, dependent: :destroy
   has_many :users, through: :earned_badges
@@ -11,7 +11,7 @@ class Badge < ApplicationRecord
   private
 
   def validate_param
-    return if check_type.empty?
+    return if check_type.nil?
 
     errors.add(:base, I18n.t('shared.errors.param_must_present', name: I18n.t("badges.check_types.labels.#{check_type}"))) if param.empty?
   end

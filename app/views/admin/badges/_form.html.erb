@@ -20,7 +20,7 @@
         <p>
           <%= form.label :check_type %>
           <%= form.select :check_type,
-                          Badge::CHECK_TYPES.map { |type| [t("badges.check_types.description.#{type}"), type] },
+                          check_types_collection,
                           { prompt: true },
                           { class: 'form-control' } %>
         </p>

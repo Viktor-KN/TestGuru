@@ -1,9 +1,8 @@
-var badgeSelector;
 var badgePartialElement;
 var inputValue;
 
 document.addEventListener('turbolinks:load', function () {
-    badgeSelector = document.getElementById('badge_check_type');
+    var badgeSelector = document.getElementById('badge_check_type');
     badgePartialElement = document.querySelector('.partial');
 
     if (badgeSelector && badgePartialElement) {

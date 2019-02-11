@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_111001) do
     t.string "name", null: false
     t.string "description", null: false
     t.string "image_url", null: false
-    t.string "check_type", null: false
+    t.integer "check_type", null: false
     t.string "param", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
