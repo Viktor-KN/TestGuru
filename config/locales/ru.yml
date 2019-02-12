@@ -4,6 +4,7 @@ ru:
       header: "Тесты"
       question_count: "Кол-во вопросов"
       action: "Действие"
+      time_limit: "Лимит времени"
     test:
       start_test: "Начать"
       questions_count:
@@ -11,6 +12,12 @@ ru:
         many: "%{count} вопросов"
         one: "%{count} вопрос"
         other: "%{count} вопросов"
+      time_limit:
+        zero: "Нет лимита"
+        few: "%{count} минуты"
+        many: "%{count} минут"
+        one: "%{count} минута"
+        other: "%{count} минут"
       card_category: "Категория: %{category}"
       card_level: "Уровень: %{level}"
       level_easy: "Легкий"
@@ -99,6 +106,7 @@ ru:
       passed: "УСПЕШНО ПРОШЛИ"
       failed: "НЕ ПРОШЛИ"
       tests_index: "Список тестов"
+      timed_out: "Вы не успели завершить этот тест вовремя."
     gist:
       success: "%{link} успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка."
