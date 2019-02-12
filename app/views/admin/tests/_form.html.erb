@@ -11,13 +11,17 @@
         </p>
         <p>
           <%= form.label :level %>
-          <%= form.number_field :level, class: 'form-control' %>
+          <%= form.number_field :level, in: 0..10, class: 'form-control' %>
         </p>
-        <p class="mb-2">
+        <p>
           <%= form.label :category_id %>
           <%= form.collection_select :category_id, Category.all.order(title: :asc), :id, :title, prompt: true, class: 'form-control' %>
         </p>
-
+        <p class="mb-2">
+          <%= form.label :time_limit %>
+          <%= content_tag :em, t('.time_limit_description') %>
+          <%= form.number_field :time_limit, in: 0..Float::INFINITY, class: 'form-control' %>
+        </p>
         <%= form.submit %>
       </div>
     <% end %>

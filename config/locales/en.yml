@@ -58,6 +58,7 @@ en:
         category_id: "Category"
         title: "Title"
         level: "Level"
+        time_limit: "Time limit"
       question:
         body: "Text"
       answer:
@@ -134,6 +135,8 @@ en:
         answer_count: "Answers count"
       form_inline:
         submit: "OK"
+      form:
+        time_limit_description: "(in minutes, 0 - no time limit)"
     questions:
       question:
         answers_count:

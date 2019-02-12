@@ -6,7 +6,8 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :level }
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :level, :time_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
 
   scope :by_category_title, ->(category_title) { joins(:category).where(categories: { title: category_title }) }
   scope :by_category_id, ->(category_id) { where(category_id: category_id) }
