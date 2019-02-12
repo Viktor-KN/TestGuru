@@ -8,7 +8,11 @@
       <p class="text-danger">
     <% end %>
 
-    <%= t('.test_result', status: test_result_status(@test_passage), percent: @test_passage.result) %>
+    <% if @test_passage.timed_out? %>
+      <%= t('.timed_out') %><br>
+    <% end %>
+
+    <%= t('.test_result', status: test_result_status(@test_passage), percent: @test_passage.calc_result_percent) %>
     </p>
 
     <%= link_to t('.tests_index'), tests_path %>

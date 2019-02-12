@@ -35,11 +35,16 @@ en:
       header: "Tests"
       question_count: "Questions count"
       action: "Action"
+      time_limit: "Time limit"
     test:
       start_test: "Start"
       questions_count:
         one: "%{count} question"
         other: "%{count} questions"
+      time_limit:
+        zero: "No limit"
+        one: "%{count} minute"
+        other: "%{count} minutes"
       card_category: "Category: %{category}"
       card_level: "Level: %{level}"
       level_easy: "Easy"
@@ -124,6 +129,7 @@ en:
       passed: "PASSED"
       failed: "FAILED"
       tests_index: "Tests Index"
+      timed_out: "You did not manage to finish this test in time."
     gist:
       success: "%{link} was successfully created!"
       failure: "An error occurred while saving gist."

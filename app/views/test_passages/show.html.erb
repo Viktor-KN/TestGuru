@@ -8,6 +8,12 @@
                             questions_count: @test_passage.test.questions.count } do %>
       <div class="float-left bg-primary progress-filler" style="width: 0%">&nbsp</div>
     <% end %>
+    <% if @test_passage.time_limited? %>
+      <%= content_tag :div,
+                       time_counter(@test_passage),
+                       class: 'text-right mb-3 counter',
+                       data: { seconds_left: seconds_left(@test_passage)} %>
+    <% end %>
     <p class="font-weight-bold">
       (<%= test_progress(@test_passage) %>)
       <%= @test_passage.current_question.body %>
@@ -22,7 +28,8 @@
           </div>
         <% end %>
 
-        <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-link mb-2' %><br>
+        <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-link mb-2' %>
+        <br>
 
         <%= form.submit t('.next_question_button') %>
       </div>

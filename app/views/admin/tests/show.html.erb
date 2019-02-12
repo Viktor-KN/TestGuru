@@ -13,6 +13,11 @@
   <%= @test.level %>
 </p>
 
+<p>
+  <strong><%= t('tests.index.time_limit') %>:</strong>
+  <%= t('tests.test.time_limit', count: @test.time_limit) %>
+</p>
+
 <div class="table-responsive">
   <table class="table">
     <thead>

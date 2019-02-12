@@ -5,8 +5,9 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_update_set_next_question
+  before_validation :before_validation_set_next_question
   before_update :before_update_set_result, if: :completed?
+  before_update :before_update_check_time_limit, if: proc { time_limited? && in_progress? }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -15,6 +16,18 @@ class TestPassage < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def in_progress?
+    !completed?
+  end
+
+  def time_limited?
+    test.time_limit.positive?
+  end
+
+  def timed_out?
+    result&.negative? || created_at + test.time_limit.minutes < Time.current
   end
 
   def current_question_index
@@ -47,11 +60,18 @@ class TestPassage < ApplicationRecord
     end
   end
 
-  def before_update_set_next_question
+  def before_validation_set_next_question
     self.current_question = next_question
   end
 
   def before_update_set_result
     self.result = calc_result_percent
+  end
+
+  def before_update_check_time_limit
+    if timed_out?
+      self.current_question = nil
+      self.result = -1
+    end
   end
 end

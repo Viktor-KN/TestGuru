@@ -6,6 +6,7 @@
   <td class="align-middle"><%= test.category.title %></td>
   <td class="align-middle"><%= test.level %></td>
   <td class="align-middle"><%= t('tests.test.questions_count', count: test.questions.count) %></td>
+  <td class="align-middle"><%= t('tests.test.time_limit', count: test.time_limit) %></td>
   <td class="align-middle"><%= link_to t('shared.show'), admin_test_path(test) %></td>
   <td class="align-middle">
     <%= link_to t('shared.edit'),
