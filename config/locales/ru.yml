@@ -29,6 +29,7 @@ ru:
         category_id: "Категория"
         title: "Название"
         level: "Уровень"
+        time_limit: "Лимит времени"
       question:
         body: "Текст"
       answer:
@@ -109,6 +110,8 @@ ru:
         answer_count: "Кол-во ответов"
       form_inline:
         submit: "OK"
+      form:
+        time_limit_description: "(в минутах, 0 - нет лимита)"
     questions:
       question:
         answers_count:
