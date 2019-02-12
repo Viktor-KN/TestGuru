@@ -8,14 +8,10 @@ class BadgeAssignmentService
   def call
     return [] unless @test_passage.result_success?
 
-    Badge.all.select(&method(:earned_badge?))
+    Badge.all.select { |badge| send "#{badge.check_type}?", badge.param }
   end
 
   private
-
-  def earned_badge?(badge)
-    send "#{badge.check_type}?", badge.param
-  end
 
   def category_completed?(category_id)
     category_id = category_id.to_i
