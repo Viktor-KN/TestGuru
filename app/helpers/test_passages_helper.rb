@@ -7,12 +7,8 @@ module TestPassagesHelper
     test_passage.result_success? ? I18n.t('test_passages.result.passed') : I18n.t('test_passages.result.failed')
   end
 
-  def seconds_left(test_passage)
-    ((test_passage.created_at + test_passage.test.time_limit.minutes) - Time.current).to_i
-  end
-
   def time_counter(test_passage)
-    total_seconds = seconds_left(test_passage)
+    total_seconds = test_passage.seconds_left
 
     return '00:00:00' if total_seconds.negative?
 
