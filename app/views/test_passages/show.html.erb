@@ -8,18 +8,18 @@
                             questions_count: @test_passage.test.questions.count } do %>
       <div class="float-left bg-primary progress-filler" style="width: 0%">&nbsp</div>
     <% end %>
-    <% if @test_passage.time_limited? %>
+    <% if @test_passage.test.time_limit? %>
       <%= content_tag :div,
                        time_counter(@test_passage),
                        class: 'text-right mb-3 counter',
-                       data: { seconds_left: seconds_left(@test_passage)} %>
+                       data: { seconds_left: @test_passage.seconds_left} %>
     <% end %>
     <p class="font-weight-bold">
       (<%= test_progress(@test_passage) %>)
       <%= @test_passage.current_question.body %>
     </p>
 
-    <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+    <%= form_with url: test_passage_path(@test_passage), local: true, method: :put, id: 'test-passage-form' do |form| %>
       <div class="form-group">
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="form-check mb-3">

@@ -7,7 +7,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_next_question
   before_update :before_update_set_result, if: :completed?
-  before_update :before_update_check_time_limit, if: proc { time_limited? && in_progress? }
+  before_update :before_update_check_time_limit, if: proc { test.time_limit? && in_progress? }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -22,12 +22,12 @@ class TestPassage < ApplicationRecord
     !completed?
   end
 
-  def time_limited?
-    test.time_limit.positive?
+  def timed_out?
+    result&.negative?
   end
 
-  def timed_out?
-    result&.negative? || created_at + test.time_limit.minutes < Time.current
+  def seconds_left
+    ((created_at + test.time_limit.minutes) - Time.current).to_i
   end
 
   def current_question_index
@@ -69,7 +69,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_check_time_limit
-    if timed_out?
+    if seconds_left.negative?
       self.current_question = nil
       self.result = -1
     end
