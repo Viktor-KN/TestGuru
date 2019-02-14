@@ -27,7 +27,7 @@ class TestPassage < ApplicationRecord
   end
 
   def seconds_left
-    ((created_at + test.time_limit.minutes) - Time.current).to_i
+    (created_at + test.time_limit.minutes - Time.current).to_i
   end
 
   def current_question_index
