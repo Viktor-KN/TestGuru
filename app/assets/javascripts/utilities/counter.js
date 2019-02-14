@@ -4,11 +4,11 @@ document.addEventListener('turbolinks:load', function () {
     if (counterDiv) {
         var totalSeconds = counterDiv.dataset.secondsLeft;
 
-        setInterval(function () {
+        var timer = setInterval(function () {
             totalSeconds--;
 
             if (totalSeconds < 0) {
-                clearInterval(this);
+                clearInterval(timer);
                 document.getElementById('test-passage-form').submit();
                 return;
             }

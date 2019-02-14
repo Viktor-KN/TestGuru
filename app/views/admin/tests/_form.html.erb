@@ -20,7 +20,7 @@
         <p class="mb-2">
           <%= form.label :time_limit %>
           <%= content_tag :em, t('.time_limit_description') %>
-          <%= form.number_field :time_limit, in: 0..Float::INFINITY, class: 'form-control' %>
+          <%= form.number_field :time_limit, min: 0, class: 'form-control' %>
         </p>
         <%= form.submit %>
       </div>
