@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
+gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -33,7 +33,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'octokit', '~> 4.0'
 
